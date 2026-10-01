@@ -16,7 +16,10 @@ export function Process() {
   useEffect(() => {
     const section = root.current;
     if (!section || prefersReducedMotion()) return;
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia(section);
+
+    // Laptop: scrolling down slides the cards sideways.
+    mm.add("(min-width: 861px)", () => {
       const track = section.querySelector<HTMLElement>(".process__track")!;
       gsap.to(track, {
         x: () => -(track.scrollWidth - window.innerWidth),
@@ -34,8 +37,21 @@ export function Process() {
           },
         );
       });
-    }, section);
-    return () => ctx.revert();
+    });
+
+    // Phone: sideways movement confuses people who try to swipe, so the cards stack downwards
+    // and the one underneath shrinks back while the next slides over it, like the services cards.
+    mm.add("(max-width: 860px)", () => {
+      const steps = gsap.utils.toArray<HTMLElement>(".step:not(.step--intro)", section);
+      // Only the text fades: with four cards stacked, fading the whole card would show the ones beneath through it.
+      steps.slice(0, -1).forEach((step, i) => {
+        const scrollTrigger = { trigger: steps[i + 1], start: "top bottom", end: "top 20%", scrub: true };
+        gsap.to(step, { scale: 0.93, ease: "none", scrollTrigger });
+        gsap.to(step.children, { opacity: 0.45, ease: "none", scrollTrigger });
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (

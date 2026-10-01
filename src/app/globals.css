@@ -833,12 +833,35 @@ ul {
   background: var(--accent) !important;
 }
 @media (max-width: 860px) {
+  .process {
+    height: auto;
+    padding-block: clamp(70px, 14vw, 110px);
+  }
+  .process__stage {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    display: block;
+  }
+  .process__track {
+    flex-direction: column;
+    gap: 5svh;
+    will-change: auto;
+  }
   .step {
-    width: 84vw;
-    height: 66svh;
+    position: sticky;
+    inset-block-start: calc(var(--nav-h) + 12px);
+    width: auto;
+    height: auto;
+    min-height: min(46svh, 380px);
+    gap: 28px;
+    transform-origin: 50% 0;
   }
   .step--intro {
-    width: 84vw;
+    position: relative;
+    inset-block-start: auto;
+    width: auto;
+    height: auto;
   }
 }
 
