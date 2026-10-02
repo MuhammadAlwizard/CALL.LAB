@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
 import { tiers } from "@/content/packages";
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       </body>
+      {site.gaId && <GoogleAnalytics gaId={site.gaId} />}
     </html>
   );
 }

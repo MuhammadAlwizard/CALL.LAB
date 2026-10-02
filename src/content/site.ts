@@ -12,6 +12,8 @@ export const site = {
     "Jasa bikin website UMKM plus iklan Meta, dikerjain online buat bisnis di seluruh Indonesia. Paket mulai Rp 1,7 juta, domain + hosting tahun pertama termasuk.",
   email,
   whatsapp,
+  /** GA4 measurement ID. Set only on the server, so local runs are not counted. */
+  gaId: env(process.env.NEXT_PUBLIC_GA_ID),
   socials: [
     { key: "instagram", label: "Instagram", url: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL) },
     { key: "threads", label: "Threads", url: env(process.env.NEXT_PUBLIC_THREADS_URL) },

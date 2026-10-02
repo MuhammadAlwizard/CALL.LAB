@@ -1380,6 +1380,12 @@ ul {
   margin-block-start: clamp(20px, 3vw, 36px);
   color: var(--ink-60);
 }
+.footer__note {
+  max-width: 70ch;
+  margin-block-start: 14px;
+  font-size: 0.85rem;
+  color: var(--ink-60);
+}
 
 /* ---------- Reveal on enter (only when motion is on) ---------- */
 .motion [data-reveal] {
