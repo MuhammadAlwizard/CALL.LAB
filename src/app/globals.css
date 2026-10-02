@@ -268,6 +268,31 @@ ul {
   align-items: center;
   gap: 14px 28px;
 }
+.hero__service {
+  display: grid;
+  gap: 10px;
+  margin-block-start: clamp(4px, 1.4vw, 20px);
+}
+.hero__service-title {
+  margin: 0;
+  font-size: clamp(1.7rem, 3.2vw, 3.2rem);
+  line-height: 1;
+}
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-60);
+}
+/* The slash trails each item so a wrapped line never starts with one. */
+.hero__facts li:not(:last-child)::after {
+  content: "/";
+  margin-inline-start: 22px;
+  color: var(--accent);
+}
 
 .vessel {
   position: relative;
@@ -370,8 +395,16 @@ ul {
     font-size: clamp(2.2rem, 10vw, 4.4rem);
   }
   .vessel {
-    height: min(40svh, 360px);
+    /* 100% keeps the glass inside the row left under the copy on short phones. */
+    height: min(40svh, 360px, 100%);
     align-self: center;
+  }
+  .hero__facts {
+    gap: 4px 14px;
+    font-size: 0.68rem;
+  }
+  .hero__facts li:not(:last-child)::after {
+    margin-inline-start: 14px;
   }
   .chip[data-i="0"] { inset-inline-start: -54%; }
   .chip[data-i="1"] { inset-inline-end: -44%; }

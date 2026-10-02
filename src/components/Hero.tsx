@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "./motion";
 
 const INGREDIENTS = ["Website", "SEO", "Iklan", "Konten"];
+const FACTS = ["8 project udah jalan", "Mulai Rp 1,7 jt", "Sekali bayar"];
 const EMPTY = 490;
 const FULL = 120;
 
@@ -64,7 +65,7 @@ export function Hero() {
     <section className="hero" id="top" ref={root}>
       <div className="wrap hero__stage">
         <div className="hero__copy">
-          <p className="mono hero__eyebrow">Web development + digital marketing</p>
+          <p className="mono hero__eyebrow">Halo, selamat datang di call.lab</p>
           <h1 className="display">
             Call on Duty
             <span className="accent hero__h1-line">always call for website</span>
@@ -75,6 +76,14 @@ export function Hero() {
               Call kita <span className="arrow" aria-hidden="true">→</span>
             </a>
             <a className="textlink" href="#paket">Lihat paket</a>
+          </div>
+          <div className="hero__service">
+            <p className="display hero__service-title">Website Development</p>
+            <ul className="mono hero__facts">
+              {FACTS.map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
