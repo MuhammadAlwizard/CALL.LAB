@@ -22,6 +22,8 @@ export type Tier = {
   name: string;
   forWho: string;
   price: string;
+  /** Same price in rupiah, for structured data. */
+  amount: number;
   items: string[];
   renewal: Renewal;
 };
@@ -32,6 +34,7 @@ export const tiers: Tier[] = [
     name: "Silver",
     forWho: "Buat usaha yang baru mulai online",
     price: "Rp 1,7 juta",
+    amount: 1700000,
     items: ["Landing page satu halaman", "Tampilan rapi di HP", "Tombol WhatsApp langsung chat", "Iklan Meta Ads buat usaha lo", "Desain materi iklan"],
     renewal: siteRenewal,
   },
@@ -40,6 +43,7 @@ export const tiers: Tier[] = [
     name: "Gold",
     forWho: "Buat usaha yang mau tampil serius",
     price: "Rp 2,5 juta",
+    amount: 2500000,
     items: [
       "Website beberapa halaman",
       "Desain sesuai brand",
@@ -55,6 +59,7 @@ export const tiers: Tier[] = [
     name: "Gold+",
     forWho: "Buat usaha yang mau jualan dari web",
     price: "Rp 3,3 juta",
+    amount: 3300000,
     items: ["Semua isi website Gold", "Toko online dengan katalog dan keranjang", "Pesanan langsung masuk WhatsApp", "Iklan Meta Ads ke halaman produk"],
     renewal: shopRenewal,
   },
@@ -63,6 +68,7 @@ export const tiers: Tier[] = [
     name: "Platinum",
     forWho: "Buat usaha yang siap digas penuh",
     price: "Rp 4,9 juta",
+    amount: 4900000,
     items: [
       "Toko online lengkap",
       "Panel admin untuk kelola produk",

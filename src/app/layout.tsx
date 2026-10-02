@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { JetBrains_Mono } from "next/font/google";
+import { tiers } from "@/content/packages";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -50,7 +51,19 @@ const jsonLd = {
   logo: `${site.url}/logo.svg`,
   image: `${site.url}/og.png`,
   areaServed: { "@type": "Country", name: "Indonesia" },
-  knowsAbout: ["Web development", "Digital marketing", "SEO", "Social media marketing", "Meta Ads", "Google Ads"],
+  priceRange: "Rp 1,7 juta - Rp 4,9 juta",
+  knowsAbout: ["Jasa pembuatan website", "Website UMKM", "Toko online", "SEO dasar", "Meta Ads"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Paket website + iklan Meta",
+    itemListElement: tiers.map((t) => ({
+      "@type": "Offer",
+      name: `Paket ${t.name}`,
+      description: t.items.join(", "),
+      price: t.amount,
+      priceCurrency: "IDR",
+    })),
+  },
   ...(site.email ? { email: site.email } : {}),
   ...(site.whatsapp ? { telephone: `+${site.whatsapp}` } : {}),
   sameAs: site.socials.map((s) => s.url).filter(Boolean),

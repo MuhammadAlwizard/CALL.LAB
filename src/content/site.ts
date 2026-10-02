@@ -7,9 +7,9 @@ const email = env(process.env.NEXT_PUBLIC_EMAIL);
 export const site = {
   name: "call.lab",
   url: env(process.env.NEXT_PUBLIC_SITE_URL).replace(/\/$/, "") || "http://localhost:3000",
-  title: "call.lab | Web Development & Digital Marketing",
+  title: "Jasa Bikin Website + Iklan Meta untuk UMKM | call.lab",
   description:
-    "call.lab bikin website dan jalanin iklan Meta buat UMKM. Lo tinggal call, kita yang on duty: website jadi, iklan jalan, sekali bayar.",
+    "Jasa bikin website UMKM plus iklan Meta, dikerjain online buat bisnis di seluruh Indonesia. Paket mulai Rp 1,7 juta, domain + hosting tahun pertama termasuk.",
   email,
   whatsapp,
   socials: [
