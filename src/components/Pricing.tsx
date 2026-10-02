@@ -32,6 +32,14 @@ export function Pricing() {
                 </li>
               ))}
             </ul>
+            <dl className="tier__specs">
+              {tier.specs.map((spec) => (
+                <div key={spec.label}>
+                  <dt className="mono">{spec.label}</dt>
+                  <dd>{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="tier__renewal">
               <p className="mono tier__renewal-label">Mulai tahun kedua</p>
               <p className="tier__renewal-price">{tier.renewal.price}</p>
@@ -54,7 +62,7 @@ export function Pricing() {
       </div>
       <p className="pricing__note">
         Harga belum termasuk budget iklan Meta Ads, yang dibayar langsung ke Meta sesuai kemampuan lo. Domain .co.id butuh KTP
-        dan dokumen usaha (misalnya NIB) buat didaftarkan.
+        dan dokumen usaha (misalnya NIB) buat didaftarkan. Waktu pengerjaan dihitung sejak bahan (teks, foto, logo) lengkap.
       </p>
     </section>
   );

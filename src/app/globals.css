@@ -8,6 +8,8 @@
   --white: #ffffff;
   --accent: #ff5a1f;
   --accent-soft: #ff8a5c;
+  /* The accent a shade deeper, only for text on the light page: #ff5a1f reads at 2.9:1 there, this at 3.1:1. */
+  --accent-text: #ff4705;
 
   --radius: 28px;
   --radius-sm: 18px;
@@ -249,7 +251,7 @@ ul {
   white-space: nowrap;
 }
 .hero h1 .accent {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 /* The orange line is too long for the display size, so it sits smaller under the title and may wrap. */
 .hero__h1-line {
@@ -485,7 +487,7 @@ ul {
   opacity: 0;
 }
 .result span {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 @media (max-width: 860px) {
@@ -860,9 +862,10 @@ ul {
 }
 .slider__dots {
   display: flex;
-  gap: 8px;
+  gap: 14px;
 }
 .slider__dot {
+  position: relative;
   width: 10px;
   height: 10px;
   padding: 0;
@@ -871,6 +874,12 @@ ul {
   background: var(--ink-15);
   cursor: pointer;
   transition: width 0.4s var(--ease-out), background-color 0.3s;
+}
+/* The dot stays small, the tap area around it is 28px tall. */
+.slider__dot::before {
+  content: "";
+  position: absolute;
+  inset: -9px -7px;
 }
 .slider__dot.is-active {
   width: 34px;
@@ -1083,6 +1092,25 @@ ul {
 .tier__price {
   font-size: 1.35rem;
   font-weight: 800;
+}
+.tier__specs {
+  display: grid;
+  gap: 8px;
+}
+.tier__specs div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.tier__specs dt {
+  opacity: 0.65;
+  white-space: nowrap;
+}
+.tier__specs dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: end;
 }
 .tier__price-note {
   margin-block-start: 4px;

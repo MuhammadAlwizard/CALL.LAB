@@ -17,7 +17,17 @@ const FINGERS: Finger[] = [
   { id: "f5", chip: 1, pivot: [85.94, 43.89], joint: [87.6, 54.41], tip: [92.17, 76.3] },
 ];
 const STRUNG = FINGERS.filter((f) => f.chip !== null);
-const FACTS = ["8 project udah jalan", "Mulai Rp 1,7 jt", "Domain + hosting tahun 1 termasuk"];
+
+// Phones get the 480px layers; the hand shows at roughly 200px there.
+const handImg = (name: string) => ({
+  src: `/img/hand/${name}.webp`,
+  srcSet: `/img/hand/${name}-480.webp 480w, /img/hand/${name}.webp 900w`,
+  sizes: "(max-width: 860px) 240px, 360px",
+  alt: "",
+  width: 900,
+  height: 952,
+});
+const FACTS = ["7 project udah live", "Mulai Rp 1,7 jt", "Domain + hosting tahun 1 termasuk"];
 const EMPTY = 490;
 const FULL = 120;
 
@@ -143,7 +153,7 @@ export function Hero() {
             Call on Duty
             <span className="accent hero__h1-line">always call for website</span>
           </h1>
-          <p className="hero__sub">Website + iklan Meta buat bisnis lo, beres sekali bayar.</p>
+          <p className="hero__sub">Website + iklan Meta buat bisnis lo, bayar sekali buat pembuatannya.</p>
           <div className="hero__actions">
             <a className="btn btn--accent" href="#kontak">
               Call kita <span className="arrow" aria-hidden="true">→</span>
@@ -163,7 +173,7 @@ export function Hero() {
         <div className="rig" aria-hidden="true">
           <div className="hand">
             <div className="hand__body">
-              <img className="hand__palm" src="/img/hand/hand-palm.webp" alt="" width={900} height={952} />
+              <img className="hand__palm" {...handImg("hand-palm")} />
               {FINGERS.map((f, i) => (
                 <div
                   className="finger"
@@ -176,7 +186,7 @@ export function Hero() {
                     animationDelay: `${i * -0.8}s`,
                   }}
                 >
-                  <img src={`/img/hand/hand-${f.id}.webp`} alt="" width={900} height={952} />
+                  <img {...handImg(`hand-${f.id}`)} />
                   <div
                     className="finger__seg"
                     style={{
@@ -185,7 +195,7 @@ export function Hero() {
                       animationDelay: `${i * -0.6}s`,
                     }}
                   >
-                    <img src={`/img/hand/hand-${f.id}-tip.webp`} alt="" width={900} height={952} />
+                    <img {...handImg(`hand-${f.id}-tip`)} />
                     <span className="finger__tip" style={{ left: `${f.tip[0]}%`, top: `${f.tip[1]}%` }} />
                   </div>
                 </div>

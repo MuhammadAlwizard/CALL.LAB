@@ -1,5 +1,5 @@
-// Answers use only facts the owner has confirmed (prices 2026-09-30, renewal 2026-10-02, remote work).
-// Delivery time and revision counts are not decided yet, so they are left out on purpose.
+// Answers use only facts the owner has confirmed (prices 2026-09-30, renewal 2026-10-02, remote work) and the
+// package specs the owner left to Claude on 2026-10-02 (src/content/packages.ts). Keep the two in sync.
 
 export type Faq = { q: string; a: string };
 
@@ -11,6 +11,18 @@ export const faqs: Faq[] = [
   {
     q: "Ada biaya per tahun setelah website jadi?",
     a: "Ada, mulai tahun kedua. Silver dan Gold Rp 489rb per tahun, Gold+ dan Platinum Rp 989rb per tahun. Isinya domain, hosting, SSL (https) dan backup rutin. Buat Gold+ dan Platinum, perbaikan kalau ada error juga udah masuk.",
+  },
+  {
+    q: "Berapa lama website gue jadi?",
+    a: "Silver 3-5 hari kerja, Gold 7-10 hari kerja, Gold+ 14-21 hari kerja, Platinum 21-30 hari kerja. Waktunya dihitung sejak bahan dari lo (teks, foto, logo) udah lengkap.",
+  },
+  {
+    q: "Revisinya berapa kali?",
+    a: "Silver 2x, Gold dan Gold+ 3x, Platinum 4x. Kalau butuh revisi lebih dari jatah, tetap bisa, biayanya dihitung terpisah sesuai besar perubahannya.",
+  },
+  {
+    q: "Kalau tahun depan gue nggak perpanjang gimana?",
+    a: "Ada masa tenggang 14 hari setelah jatuh tempo. Lewat dari itu website dinonaktifkan. Kalau lo mau pindah ke hosting lain, file website kita serahin dan domainnya bisa dipindah atas nama lo.",
   },
   {
     q: "Bisnis gue di luar Bandung atau Jakarta, tetap bisa?",

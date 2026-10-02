@@ -103,7 +103,7 @@ export function Works() {
             style={{ transform: `translateX(-${pos * 100}%)`, transition: animate ? undefined : "none" }}
           >
             {SLIDES.map((work, i) => (
-              <article
+              <div
                 className={`slide${visible && (i - 1 + count) % count === index ? " is-active" : ""}`}
                 key={`${work.slug}-${i}`}
                 role="group"
@@ -126,7 +126,7 @@ export function Works() {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>
