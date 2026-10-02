@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "check:public": "node scripts/check-public.mjs"
+    "check:public": "node scripts/check-public.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "license": "UNLICENSED",
   "type": "module",
