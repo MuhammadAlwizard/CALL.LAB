@@ -56,6 +56,17 @@ export const works: Work[] = [
     alt: "Tampilan landing page Yasbutiii",
   },
   {
+    slug: "maison-la-vida",
+    name: "Maison La Vida",
+    kind: "Landing page event",
+    summary: "Landing page untuk pool party bertema 2016 Rewind: pintu masuk dengan suara, denah meja yang bisa diperbesar, pilihan meja dengan minimum charge, dan reservasi langsung lewat WhatsApp.",
+    tags: ["HTML", "GSAP", "WhatsApp"],
+    image: "/img/works/maisonlavida.webp",
+    width: 1600,
+    height: 900,
+    alt: "Tampilan landing page Maison La Vida",
+  },
+  {
     slug: "warung-wifi",
     name: "Warung WiFi",
     kind: "Dashboard pendapatan",
