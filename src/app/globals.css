@@ -294,11 +294,116 @@ ul {
   color: var(--accent);
 }
 
-.vessel {
+/* The rig stacks the marionette hand over the glass; the strings are drawn between them in JS. */
+.rig {
   position: relative;
   justify-self: center;
-  height: min(72svh, 640px);
+  height: min(calc(100svh - var(--nav-h) - 64px), 780px);
+  aspect-ratio: 0.4;
+}
+.hand {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  width: 104%;
+  aspect-ratio: 900 / 952;
+  translate: -50% 0;
+  pointer-events: none;
+  animation: hand-float 5s ease-in-out infinite alternate;
+}
+.hand__body,
+.finger,
+.finger__seg,
+.hand img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hand__body {
+  transform-origin: 50% 0;
+}
+/* The idle sway uses the separate rotate property so it adds to the pull that GSAP puts on transform. */
+.finger {
+  will-change: transform;
+  animation: finger-sway 3s ease-in-out infinite alternate;
+}
+.finger__seg {
+  animation: tip-sway 2.4s ease-in-out infinite alternate;
+}
+@keyframes tip-sway {
+  from {
+    rotate: -2deg;
+  }
+  to {
+    rotate: 2.6deg;
+  }
+}
+.finger__tip {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+@keyframes finger-sway {
+  from {
+    rotate: -1.2deg;
+  }
+  to {
+    rotate: 1.4deg;
+  }
+}
+@keyframes hand-float {
+  to {
+    transform: translateY(-8px);
+  }
+}
+/* Strings run behind the glass, so they read as hanging into it rather than across it. */
+.strings {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.silk path {
+  fill: none;
+  stroke-linecap: round;
+}
+.silk__shade {
+  stroke: rgba(2, 16, 66, 0.22);
+  stroke-width: 2.2;
+}
+.silk__core {
+  stroke: #c9cfdb;
+  stroke-width: 1;
+}
+.silk__glint {
+  stroke: #ffffff;
+  stroke-width: 1.4;
+  stroke-dasharray: 6 94;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9));
+  animation: silk-glint 3.6s linear infinite;
+  animation-delay: inherit;
+}
+@keyframes silk-glint {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.vessel {
+  position: absolute;
+  z-index: 2;
+  inset-block-end: 0;
+  inset-inline-start: 50%;
+  height: 58%;
   aspect-ratio: 300 / 520;
+  translate: -50% 0;
 }
 .vessel svg {
   width: 100%;
@@ -394,9 +499,9 @@ ul {
   .hero h1 {
     font-size: clamp(2.2rem, 10vw, 4.4rem);
   }
-  .vessel {
-    /* 100% keeps the glass inside the row left under the copy on short phones. */
-    height: min(40svh, 360px, 100%);
+  .rig {
+    /* 100% keeps the rig inside the row left under the copy on short phones. */
+    height: min(52svh, 480px, 100%);
     align-self: center;
   }
   .hero__facts {
@@ -410,6 +515,17 @@ ul {
   .chip[data-i="1"] { inset-inline-end: -44%; }
   .chip[data-i="2"] { inset-inline-start: -48%; }
   .chip[data-i="3"] { inset-inline-end: -52%; }
+}
+
+/* Short phones: give the rig the room the facts row would take, and shrink the chips with it. */
+@media (max-width: 860px) and (max-height: 720px) {
+  .hero__facts {
+    display: none;
+  }
+  .chip {
+    padding: 0.5em 0.85em;
+    font-size: 0.72rem;
+  }
 }
 
 /* ---------- Manifesto ---------- */
@@ -1198,8 +1314,15 @@ ul {
     overflow-x: auto;
     padding-block: 80px;
   }
-  .chip {
+  .chip,
+  .strings {
     display: none;
+  }
+  .hand,
+  .finger,
+  .finger__seg,
+  .silk__glint {
+    animation: none;
   }
   .result {
     opacity: 1;
