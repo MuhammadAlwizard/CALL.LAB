@@ -125,6 +125,9 @@ export function Works() {
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
+                  <a className="textlink slide__more" href={`/karya/${work.slug}/`} draggable={false}>
+                    Lihat studi kasus <span className="arrow" aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
             ))}

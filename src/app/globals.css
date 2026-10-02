@@ -1192,6 +1192,140 @@ ul {
   }
 }
 
+.slide__more {
+  justify-self: start;
+}
+
+/* ---------- Case study pages (/karya/<slug>/) ---------- */
+.case {
+  padding-block: calc(var(--nav-h) + clamp(28px, 4vw, 56px)) clamp(60px, 8vw, 110px);
+}
+.case__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-60);
+}
+.case__crumbs a:hover {
+  color: var(--ink);
+}
+.case__head {
+  display: grid;
+  gap: clamp(12px, 1.6vw, 20px);
+  margin-block: clamp(28px, 4vw, 52px) clamp(28px, 4vw, 48px);
+}
+.case__kind {
+  color: var(--ink-60);
+}
+.case__head h1 {
+  font-size: clamp(2.8rem, 8vw, 7.4rem);
+}
+.case__intro {
+  max-width: 52ch;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  color: var(--ink-80);
+}
+.case__shot {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--tint);
+}
+.case__shot img {
+  width: 100%;
+  height: auto;
+}
+.case__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px clamp(32px, 6vw, 110px);
+  margin-block: clamp(48px, 7vw, 96px);
+}
+.case__built h2 {
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  margin-block-end: 24px;
+}
+.case__built ul {
+  display: grid;
+  gap: 14px;
+}
+.case__built li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+}
+.case__built .plus {
+  color: var(--accent-text);
+  font-weight: 800;
+}
+.case__side {
+  align-self: start;
+  padding: clamp(22px, 2.6vw, 34px);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.case__side h2 {
+  color: var(--ink-60);
+  margin-block-end: 18px;
+}
+.case__stack {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+}
+.case__stack dt {
+  font-weight: 800;
+}
+.case__stack dd {
+  margin: 4px 0 0;
+  color: var(--ink-80);
+}
+.case__cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) auto;
+  align-items: end;
+  gap: 24px 48px;
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--radius);
+  background: var(--tint);
+}
+.case__cta h2 {
+  font-size: clamp(1.9rem, 3.6vw, 3.4rem);
+}
+.case__cta p {
+  max-width: 48ch;
+  margin-block-start: 12px;
+  color: var(--ink-80);
+}
+.case__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+}
+.case__next {
+  display: grid;
+  gap: 8px;
+  margin-block-start: clamp(48px, 7vw, 96px);
+}
+.case__next .mono {
+  color: var(--ink-60);
+}
+.case__next .display {
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  transition: color 0.3s;
+}
+.case__next:hover .display {
+  color: var(--accent-text);
+}
+@media (max-width: 860px) {
+  .case__body,
+  .case__cta {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- FAQ ---------- */
 .faq {
   display: grid;
