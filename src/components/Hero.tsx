@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "./motion";
 
 const INGREDIENTS = ["Website", "SEO", "Iklan", "Konten"];
-const FACTS = ["8 project udah jalan", "Mulai Rp 1,7 jt", "Sekali bayar"];
+const FACTS = ["8 project udah jalan", "Mulai Rp 1,7 jt", "Domain + hosting tahun 1 termasuk"];
 const EMPTY = 490;
 const FULL = 120;
 

@@ -968,6 +968,35 @@ ul {
   font-size: 1.35rem;
   font-weight: 800;
 }
+.tier__price-note {
+  margin-block-start: 4px;
+  font-size: 0.88rem;
+  opacity: 0.75;
+}
+.tier__renewal {
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.4);
+  /* Sits at the bottom of every card so the renewal boxes line up across tiers. */
+  margin-block-start: auto;
+}
+.tier--platinum .tier__renewal {
+  background: rgba(243, 245, 249, 0.08);
+}
+.tier__renewal-label {
+  opacity: 0.7;
+}
+.tier__renewal-price {
+  font-weight: 800;
+}
+.tier__renewal-list {
+  display: grid;
+  gap: 2px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
 .tier__list {
   display: grid;
   gap: 10px;
@@ -1004,7 +1033,6 @@ ul {
 }
 .tier .btn {
   align-self: flex-start;
-  margin-block-start: auto;
 }
 @media (max-width: 1200px) {
   .tiers {

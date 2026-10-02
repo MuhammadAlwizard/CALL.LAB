@@ -7,7 +7,7 @@ export function Pricing() {
       <div className="pricing__head" data-reveal>
         <p className="mono">Paket</p>
         <h2 className="display">Pilih racikan lo.</h2>
-        <p>Satu paket sudah termasuk website dan promosi lewat Meta Ads. Sekali bayar, tanpa langganan bulanan.</p>
+        <p>Satu paket sudah termasuk website, promosi lewat Meta Ads, plus domain dan hosting tahun pertama. Mulai tahun kedua, cukup perpanjang per tahun.</p>
       </div>
 
       <div className="tiers">
@@ -20,7 +20,10 @@ export function Pricing() {
               </div>
               {tier.slug === "gold-plus" && <span className="mono tier__badge">Rekomendasi kita</span>}
             </div>
-            <p className="tier__price">{tier.price}</p>
+            <div>
+              <p className="tier__price">{tier.price}</p>
+              <p className="tier__price-note">Sekali bayar, termasuk domain + hosting tahun pertama</p>
+            </div>
             <ul className="tier__list">
               {tier.items.map((item) => (
                 <li key={item}>
@@ -29,6 +32,15 @@ export function Pricing() {
                 </li>
               ))}
             </ul>
+            <div className="tier__renewal">
+              <p className="mono tier__renewal-label">Mulai tahun kedua</p>
+              <p className="tier__renewal-price">{tier.renewal.price}</p>
+              <ul className="tier__renewal-list">
+                {tier.renewal.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
             <a
               className="btn btn--ink"
               href={whatsappLink(`Halo call.lab, saya tertarik dengan paket ${tier.name}.`)}
@@ -40,7 +52,10 @@ export function Pricing() {
           </article>
         ))}
       </div>
-      <p className="pricing__note">Harga belum termasuk budget iklan Meta Ads, yang dibayar langsung ke Meta sesuai kemampuan lo.</p>
+      <p className="pricing__note">
+        Harga belum termasuk budget iklan Meta Ads, yang dibayar langsung ke Meta sesuai kemampuan lo. Domain .co.id butuh KTP
+        dan dokumen usaha (misalnya NIB) buat didaftarkan.
+      </p>
     </section>
   );
 }
