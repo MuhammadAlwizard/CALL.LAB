@@ -5,7 +5,8 @@ export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/_next/"] },
+    // Nothing is blocked: Google needs the CSS and JS under /_next/ to render the page. The site has no admin or API routes.
+    rules: { userAgent: "*", allow: "/" },
     sitemap: `${site.url}/sitemap.xml`,
   };
 }
