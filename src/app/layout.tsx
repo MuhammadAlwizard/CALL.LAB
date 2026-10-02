@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   alternates: { canonical: "/" },
+  // Search Console ownership, as a backup to public/googlef2d3649a721c65cf.html. Keep both.
+  verification: { google: "eHCJo8CP8wYEe0_rJP0OaeznKO21iROf7LYHDSG05o0" },
   openGraph: {
     type: "website",
     locale: "id_ID",
