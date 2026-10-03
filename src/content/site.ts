@@ -3,6 +3,7 @@ const env = (value: string | undefined) => (value ?? "").trim();
 
 const whatsapp = env(process.env.NEXT_PUBLIC_WHATSAPP).replace(/\D/g, "");
 const email = env(process.env.NEXT_PUBLIC_EMAIL);
+const nib = env(process.env.NEXT_PUBLIC_NIB).replace(/\D/g, "");
 
 export const site = {
   name: "call.lab",
@@ -12,6 +13,8 @@ export const site = {
     "Jasa bikin website UMKM plus iklan Meta, dikerjain online buat bisnis di seluruh Indonesia. Paket mulai Rp 1,7 juta, domain + hosting tahun pertama termasuk.",
   email,
   whatsapp,
+  /** Nomor Induk Berusaha from OSS, shown in the footer as proof the business is registered. */
+  nib,
   /** GA4 measurement ID. Set only on the server, so local runs are not counted. */
   gaId: env(process.env.NEXT_PUBLIC_GA_ID),
   socials: [

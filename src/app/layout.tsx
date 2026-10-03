@@ -69,6 +69,7 @@ const jsonLd = {
   },
   ...(site.email ? { email: site.email } : {}),
   ...(site.whatsapp ? { telephone: `+${site.whatsapp}` } : {}),
+  ...(site.nib ? { identifier: { "@type": "PropertyValue", propertyID: "NIB", value: site.nib } } : {}),
   sameAs: site.socials.map((s) => s.url).filter(Boolean),
 };
 
